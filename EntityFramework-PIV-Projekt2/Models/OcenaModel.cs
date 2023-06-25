@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityFramework_PIV_Projekt2;
-
-public partial class Oceny
+[Table("Oceny")]
+public partial class OcenaModel
 {
     [Key]
     public int Id { get; set; }
@@ -15,7 +16,7 @@ public partial class Oceny
 
     public string? Komentarz { get; set; }
 
-    public virtual Klienci Klient { get; set; } = null!;
+    public virtual KlientModel Klient { get; set; } = null!;
 
-    public virtual Wydarzenie Wydarzenie { get; set; } = null!;
+    public virtual WydarzenieModel Wydarzenie { get; set; } = null!;
 }

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityFramework_PIV_Projekt2;
-
-public partial class Klienci
+[Table("Klienci")]
+public partial class KlientModel
 {
     [Key]
     public int Id { get; set; }
@@ -23,11 +24,11 @@ public partial class Klienci
 
     public string? Telefon { get; set; }
 
-    public virtual Adres? Adres { get; set; }
+    public virtual AdresModel? Adres { get; set; }
 
-    public virtual ICollection<KlienciBiletyTransakcje> Transakcje { get; set; } = new List<KlienciBiletyTransakcje>();
+    public virtual ICollection<KlienciBiletyTransakcjeModel> Transakcje { get; set; } = new List<KlienciBiletyTransakcjeModel>();
 
-    public virtual ICollection<Oceny> Oceny { get; set; } = new List<Oceny>();
+    public virtual ICollection<OcenaModel> Oceny { get; set; } = new List<OcenaModel>();
 
-    public virtual ICollection<Rezerwacje> Rezerwacje { get; set; } = new List<Rezerwacje>();
+    public virtual ICollection<RezerwacjaModel> Rezerwacje { get; set; } = new List<RezerwacjaModel>();
 }

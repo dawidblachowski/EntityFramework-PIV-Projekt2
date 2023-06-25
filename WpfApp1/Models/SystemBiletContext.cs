@@ -15,7 +15,7 @@ public partial class SystemBiletContext : DbContext
     {
     }
 
-    public virtual DbSet<AdresModel> Adres { get; set; }
+    public virtual DbSet<AdresModel> Adresy { get; set; }
 
     public virtual DbSet<BiletModel> Bilety { get; set; }
 
@@ -36,7 +36,7 @@ public partial class SystemBiletContext : DbContext
     public virtual DbSet<WydarzenieModel> Wydarzenia { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //=> optionsBuilder.UseSqlServer("Server=localhost;Database=SB;Trusted_Connection=True;TrustServerCertificate=Yes");
+        //=> optionsBuilder.UseSqlServer("Server=localhost;Database=SBP4;Trusted_Connection=True;TrustServerCertificate=Yes");
         => optionsBuilder.UseSqlite(@"Data Source=C:\ATH\P4\EF\db.db");
 
 }

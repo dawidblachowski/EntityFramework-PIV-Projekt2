@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityFramework_PIV_Projekt2;
-
-public partial class Organizatorzy
+[Table("Organizatorzy")]
+public partial class OrganizatorModel
 {
     [Key]
     public int Id { get; set; }
@@ -22,7 +23,7 @@ public partial class Organizatorzy
     public string Mail { get; set; } = null!;
 
 
-    public virtual Adres Adres { get; set; } = null!;
+    public virtual AdresModel Adres { get; set; } = null!;
 
-    public virtual ICollection<Wydarzenie> Wydarzenia { get; set; } = new List<Wydarzenie>();
+    public virtual ICollection<WydarzenieModel> Wydarzenia { get; set; } = new List<WydarzenieModel>();
 }

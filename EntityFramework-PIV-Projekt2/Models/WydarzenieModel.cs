@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityFramework_PIV_Projekt2;
-
-public partial class Wydarzenie
+[Table("Wydarzenia")]
+public partial class WydarzenieModel
 {
     [Key]
     public int Id { get; set; }
@@ -21,11 +22,11 @@ public partial class Wydarzenie
 
     public byte[]? Plakat { get; set; }
 
-    public virtual ICollection<Bilety> Bilet { get; set; } = new List<Bilety>();
+    public virtual ICollection<BiletModel> Bilet { get; set; } = new List<BiletModel>();
 
-    public virtual Miejsca? Miejsce { get; set; }
+    public virtual MiejsceModel? Miejsce { get; set; }
 
-    public virtual Organizatorzy Organizator { get; set; } = null!;
+    public virtual OrganizatorModel Organizator { get; set; } = null!;
 
-    public virtual ICollection<Oceny> Ocenies { get; set; } = new List<Oceny>();
+    public virtual ICollection<OcenaModel> Ocenies { get; set; } = new List<OcenaModel>();
 }

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityFramework_PIV_Projekt2;
-
-public partial class Miejsca
+[Table("Miejsca")]
+public partial class MiejsceModel
 {
     [Key]
     public int Id { get; set; }
@@ -14,7 +15,7 @@ public partial class Miejsca
 
     public byte[]? ZdjecieObiektu { get; set; }
 
-    public virtual Adres Adres { get; set; } = null!;
+    public virtual AdresModel Adres { get; set; } = null!;
 
-    public virtual ICollection<Wydarzenie> Wydarzenia { get; set; } = new List<Wydarzenie>();
+    public virtual ICollection<WydarzenieModel> Wydarzenia { get; set; } = new List<WydarzenieModel>();
 }

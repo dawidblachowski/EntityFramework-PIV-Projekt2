@@ -1,0 +1,61 @@
+﻿<Window x:Class="WpfApp1.View.AddressEditorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.View"
+        mc:Ignorable="d"
+        Title="EditView" Height="450" Width="800">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Click="NewItemBtnClick">Dodaj nowy adres</Button>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ListBox Grid.Column="0" x:Name="LeftListBox" ItemsSource="{Binding Adresy}" SelectedItem="{Binding CurrentAddress}"></ListBox>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+
+                    
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0">Kod Pocztowy</Label>
+                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding CurrentKodPocztowy}"></TextBox>
+                    
+                    <Label Grid.Column="0" Grid.Row="1">Kraj</Label>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding CurrentKraj}"></TextBox>
+
+
+                    <Label Grid.Column="0" Grid.Row="2">Miasto</Label>
+                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding CurrentMiasto}"></TextBox>
+
+
+                    <Label Grid.Column="0" Grid.Row="3">Ulica</Label>
+                    <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding CurrentUlica}"></TextBox>
+
+                    
+                    <Label Grid.Column="0" Grid.Row="4">Numer Budynku</Label>
+                    <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding CurrentNumerBudynku}"></TextBox>
+
+                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" Click="SaveEntity">Zapisz zmiany</Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    
+</Window>

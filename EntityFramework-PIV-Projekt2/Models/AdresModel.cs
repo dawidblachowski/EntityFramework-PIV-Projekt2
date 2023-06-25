@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityFramework_PIV_Projekt2;
 
-public partial class Adres
+[Table("Adres")]
+public partial class AdresModel
 {
     [Key]
     public int Id { get; set; }
@@ -19,9 +21,9 @@ public partial class Adres
 
     public string NumerBudynku { get; set; } = null!;
 
-    public virtual ICollection<Klienci> Kliencis { get; set; } = new List<Klienci>();
+    public virtual ICollection<KlientModel> Klienci { get; set; } = new List<KlientModel>();
 
-    public virtual ICollection<Miejsca> Miejscas { get; set; } = new List<Miejsca>();
+    public virtual ICollection<MiejsceModel> Miejsca { get; set; } = new List<MiejsceModel>();
 
-    public virtual ICollection<Organizatorzy> Organizatorzies { get; set; } = new List<Organizatorzy>();
+    public virtual ICollection<OrganizatorModel> Organizatorzy { get; set; } = new List<OrganizatorModel>();
 }

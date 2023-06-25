@@ -15,13 +15,13 @@ namespace EntityFramework_PIV_Projekt2.Migrations
                 name: "Adres",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    KodPocztowy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Kraj = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Miasto = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Ulica = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NumerBudynku = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    KodPocztowy = table.Column<string>(type: "TEXT", nullable: false),
+                    Kraj = table.Column<string>(type: "TEXT", nullable: false),
+                    Miasto = table.Column<string>(type: "TEXT", nullable: false),
+                    Ulica = table.Column<string>(type: "TEXT", nullable: false),
+                    NumerBudynku = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,8 +32,8 @@ namespace EntityFramework_PIV_Projekt2.Migrations
                 name: "Rabaty",
                 columns: table => new
                 {
-                    Kod = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Znizka = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Kod = table.Column<string>(type: "TEXT", nullable: false),
+                    Znizka = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -44,16 +44,16 @@ namespace EntityFramework_PIV_Projekt2.Migrations
                 name: "Klienci",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Imie = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Nazwisko = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Plec = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DataUrodzenia = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Haslo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Mail = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Telefon = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AdresId = table.Column<int>(type: "int", nullable: true)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Imie = table.Column<string>(type: "TEXT", nullable: true),
+                    Nazwisko = table.Column<string>(type: "TEXT", nullable: true),
+                    Plec = table.Column<string>(type: "TEXT", nullable: true),
+                    DataUrodzenia = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Haslo = table.Column<string>(type: "TEXT", nullable: false),
+                    Mail = table.Column<string>(type: "TEXT", nullable: false),
+                    Telefon = table.Column<string>(type: "TEXT", nullable: true),
+                    AdresId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -69,11 +69,11 @@ namespace EntityFramework_PIV_Projekt2.Migrations
                 name: "Miejsca",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NazwaObiektu = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ZdjecieObiektu = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    AdresId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NazwaObiektu = table.Column<string>(type: "TEXT", nullable: false),
+                    ZdjecieObiektu = table.Column<byte[]>(type: "BLOB", nullable: true),
+                    AdresId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -90,15 +90,15 @@ namespace EntityFramework_PIV_Projekt2.Migrations
                 name: "Organizatorzy",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nip = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Telefon = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NazwaFirmy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Imie = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Nazwisko = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Mail = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AdresId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nip = table.Column<string>(type: "TEXT", nullable: false),
+                    Telefon = table.Column<string>(type: "TEXT", nullable: false),
+                    NazwaFirmy = table.Column<string>(type: "TEXT", nullable: false),
+                    Imie = table.Column<string>(type: "TEXT", nullable: false),
+                    Nazwisko = table.Column<string>(type: "TEXT", nullable: false),
+                    Mail = table.Column<string>(type: "TEXT", nullable: false),
+                    AdresId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -115,13 +115,13 @@ namespace EntityFramework_PIV_Projekt2.Migrations
                 name: "Rezerwacje",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DataRezerwacji = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DlugoscRezerwacji = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CenaRezerwacji = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false),
-                    KlientId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    DataRezerwacji = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DlugoscRezerwacji = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    CenaRezerwacji = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Status = table.Column<bool>(type: "INTEGER", nullable: false),
+                    KlientId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -138,16 +138,16 @@ namespace EntityFramework_PIV_Projekt2.Migrations
                 name: "Wydarzenia",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nazwa = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Data = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CenaBiletu = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    IloscBiletow = table.Column<int>(type: "int", nullable: false),
-                    Opis = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Plakat = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    MiejsceId = table.Column<int>(type: "int", nullable: true),
-                    OrganizatorId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nazwa = table.Column<string>(type: "TEXT", nullable: false),
+                    Data = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CenaBiletu = table.Column<decimal>(type: "TEXT", nullable: false),
+                    IloscBiletow = table.Column<int>(type: "INTEGER", nullable: false),
+                    Opis = table.Column<string>(type: "TEXT", nullable: false),
+                    Plakat = table.Column<byte[]>(type: "BLOB", nullable: true),
+                    MiejsceId = table.Column<int>(type: "INTEGER", nullable: true),
+                    OrganizatorId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -169,11 +169,11 @@ namespace EntityFramework_PIV_Projekt2.Migrations
                 name: "Bilety",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Rodzaj = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Miejsce = table.Column<int>(type: "int", nullable: true),
-                    WydarzenieId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Rodzaj = table.Column<string>(type: "TEXT", nullable: false),
+                    Miejsce = table.Column<int>(type: "INTEGER", nullable: true),
+                    WydarzenieId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -190,13 +190,13 @@ namespace EntityFramework_PIV_Projekt2.Migrations
                 name: "Oceny",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Ocena = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Data = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Komentarz = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    KlientId = table.Column<int>(type: "int", nullable: false),
-                    WydarzenieId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Ocena = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Data = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Komentarz = table.Column<string>(type: "TEXT", nullable: true),
+                    KlientId = table.Column<int>(type: "INTEGER", nullable: false),
+                    WydarzenieId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -216,42 +216,42 @@ namespace EntityFramework_PIV_Projekt2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Transakcje",
+                name: "KlienciBiletyTransakcje",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MetodaPlatnosci = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false),
-                    DataZakupu = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IloscZakupionychBiletow = table.Column<int>(type: "int", nullable: false),
-                    BiletId = table.Column<int>(type: "int", nullable: false),
-                    KlientId = table.Column<int>(type: "int", nullable: false),
-                    RezerwacjaId = table.Column<int>(type: "int", nullable: true),
-                    RabatKod = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    MetodaPlatnosci = table.Column<string>(type: "TEXT", nullable: false),
+                    Status = table.Column<bool>(type: "INTEGER", nullable: false),
+                    DataZakupu = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    IloscZakupionychBiletow = table.Column<int>(type: "INTEGER", nullable: false),
+                    BiletId = table.Column<int>(type: "INTEGER", nullable: false),
+                    KlientId = table.Column<int>(type: "INTEGER", nullable: false),
+                    RezerwacjaId = table.Column<int>(type: "INTEGER", nullable: true),
+                    RabatKod = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Transakcje", x => x.Id);
+                    table.PrimaryKey("PK_KlienciBiletyTransakcje", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Transakcje_Bilety_BiletId",
+                        name: "FK_KlienciBiletyTransakcje_Bilety_BiletId",
                         column: x => x.BiletId,
                         principalTable: "Bilety",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Transakcje_Klienci_KlientId",
+                        name: "FK_KlienciBiletyTransakcje_Klienci_KlientId",
                         column: x => x.KlientId,
                         principalTable: "Klienci",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Transakcje_Rabaty_RabatKod",
+                        name: "FK_KlienciBiletyTransakcje_Rabaty_RabatKod",
                         column: x => x.RabatKod,
                         principalTable: "Rabaty",
                         principalColumn: "Kod");
                     table.ForeignKey(
-                        name: "FK_Transakcje_Rezerwacje_RezerwacjaId",
+                        name: "FK_KlienciBiletyTransakcje_Rezerwacje_RezerwacjaId",
                         column: x => x.RezerwacjaId,
                         principalTable: "Rezerwacje",
                         principalColumn: "Id");
@@ -266,6 +266,26 @@ namespace EntityFramework_PIV_Projekt2.Migrations
                 name: "IX_Klienci_AdresId",
                 table: "Klienci",
                 column: "AdresId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_KlienciBiletyTransakcje_BiletId",
+                table: "KlienciBiletyTransakcje",
+                column: "BiletId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_KlienciBiletyTransakcje_KlientId",
+                table: "KlienciBiletyTransakcje",
+                column: "KlientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_KlienciBiletyTransakcje_RabatKod",
+                table: "KlienciBiletyTransakcje",
+                column: "RabatKod");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_KlienciBiletyTransakcje_RezerwacjaId",
+                table: "KlienciBiletyTransakcje",
+                column: "RezerwacjaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Miejsca_AdresId",
@@ -293,26 +313,6 @@ namespace EntityFramework_PIV_Projekt2.Migrations
                 column: "KlientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Transakcje_BiletId",
-                table: "Transakcje",
-                column: "BiletId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Transakcje_KlientId",
-                table: "Transakcje",
-                column: "KlientId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Transakcje_RabatKod",
-                table: "Transakcje",
-                column: "RabatKod");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Transakcje_RezerwacjaId",
-                table: "Transakcje",
-                column: "RezerwacjaId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Wydarzenia_MiejsceId",
                 table: "Wydarzenia",
                 column: "MiejsceId");
@@ -327,10 +327,10 @@ namespace EntityFramework_PIV_Projekt2.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Oceny");
+                name: "KlienciBiletyTransakcje");
 
             migrationBuilder.DropTable(
-                name: "Transakcje");
+                name: "Oceny");
 
             migrationBuilder.DropTable(
                 name: "Bilety");

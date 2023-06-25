@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityFramework_PIV_Projekt2;
 
-public partial class KlienciBiletyTransakcje
+[Table("KlienciBiletyTransakcje")]
+public partial class KlienciBiletyTransakcjeModel
 {
     [Key]
     public int Id { get; set; }
@@ -17,11 +19,11 @@ public partial class KlienciBiletyTransakcje
 
     public int IloscZakupionychBiletow { get; set; }
 
-    public virtual Bilety Bilet { get; set; } = null!;
+    public virtual BiletModel Bilet { get; set; } = null!;
 
-    public virtual Klienci Klient { get; set; } = null!;
+    public virtual KlientModel Klient { get; set; } = null!;
 
-    public virtual Rezerwacje? Rezerwacja { get; set; }
+    public virtual RezerwacjaModel? Rezerwacja { get; set; }
 
-    public virtual Rabat? Rabat { get; set; }
+    public virtual RabatModel? Rabat { get; set; }
 }

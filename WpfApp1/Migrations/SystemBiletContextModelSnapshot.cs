@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace EntityFramework_PIV_Projekt2.Migrations
+namespace WpfApp1.Migrations
 {
     [DbContext(typeof(SystemBiletContext))]
     partial class SystemBiletContextModelSnapshot : ModelSnapshot
